@@ -1,5 +1,8 @@
+// ignore: unused_import
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -9,7 +12,147 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      home: LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bem Vindo ao BtheB' ), 
+        backgroundColor: Color.fromARGB(255, 81, 20, 179),
+      ),
+      backgroundColor: Colors.black,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                labelText: 'Usuário',
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.yellow),
+                ),
+              ),
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                labelText: 'Senha',
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.yellow),
+                ),
+              ),
+              obscureText: true,
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (_usernameController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SecondScreen(username: _usernameController.text),
+                    ),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.yellow,
+              ),
+              child: Text(
+                'Login',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  final String username;
+
+  SecondScreen({required this.username});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('🦇'),
+        backgroundColor: Color.fromARGB(255, 114, 14, 99),
+      ),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Text(
+          'Login feito com sucesso, bem-vindo $username!',
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Color.fromARGB(255, 6, 6, 6),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home, color: Colors.purple),
+              onPressed: () {
+                Navigator.pop(context);
+                
+              },
+            ),
+        ElevatedButton(
+               onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:(context) => FirstScreen())
+                );
+               },
+               
+               style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple),
+               ),
+               
+               child: const Text(
+                'Entrar', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
+               ),
+            
+            ),
+        
+          ],
+        ),
+      ),
+    );
+
+    
+  }
+  
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'APP',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -17,23 +160,24 @@ class MyApp extends StatelessWidget {
       home: FirstScreen(),
     );
   }
-}
+
 
 class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BtheB'),
+        title: Text('BtheB', style: TextStyle(color: Colors.purple)),
+        backgroundColor: const Color.fromARGB(255, 12, 12, 12),
       ),
       backgroundColor: Colors.black,
      extendBodyBehindAppBar: true,
      body: Column(
       children: [
         Container(
-          height: 200,//altura
-          width:200 ,
-         child: Image.network('https://private-user-images.githubusercontent.com/127435388/325584119-6bdd9af5-e997-4de9-a4f8-abd16c652d01.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQwNDQwNjMsIm5iZiI6MTcxNDA0Mzc2MywicGF0aCI6Ii8xMjc0MzUzODgvMzI1NTg0MTE5LTZiZGQ5YWY1LWU5OTctNGRlOS1hNGY4LWFiZDE2YzY1MmQwMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQyNVQxMTE2MDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iOGM1OTY1Y2UyZDQ1ODA2ZWQ3MjI4ZTY2MWFhNGIzZDRkZGIyN2JjN2YwNDUzOTk2YTkzNjk5NzI3NDQ3MTc1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.i9bsrIOk98KHiPu0EYyPrBJXLFbQo1fEAn8rGwXg1AE'
+          height: 300,//altura
+          width:900 ,// largura
+         child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/BtheB-Photoroom.png-Photoroom.png'
 
          ),
       
@@ -45,14 +189,17 @@ class FirstScreen extends StatelessWidget {
                onPressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder:(context) => SecondScreen()),
+                  MaterialPageRoute(builder:(context) => Screen()),
                 );
                },
+               
                style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple),
                ),
+               
                child: const Text(
-                'HISTORIA', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
+                '🦇 HISTORIA 🦇', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
                ),
+            
             ),
           )
         )
@@ -82,32 +229,44 @@ class FirstScreen extends StatelessWidget {
 }
   
 
-class SecondScreen extends StatelessWidget {
-  final Random _random = Random();
+class Screen extends StatelessWidget {
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Segunda Tela'),
+         title: Text('BtheB  🦇 🦇 🦇', style: TextStyle(color: Colors.purple)),
+        backgroundColor: const Color.fromARGB(255, 12, 12, 12),
       ),
       backgroundColor: Colors.black,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(''),
-            SizedBox(height: 20),
-            Text(
-              'BECU do BATMAN '
+       body: Column(
+      children: [
+        Container(
+          height: 300,//altura
+          width:900 ,// largura
+         child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/BtheB%20(1).jpg'
+
+         ),
+      
+        ),
+            const Text(
+              'BECO do BATMAN ',
+              style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 150, 32, 171), fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20,),
+            Text('O Beco do Batman é um famoso ponto turístico localizado na Vila Madalena, em São Paulo. Conhecido por suas coloridas e vibrantes obras de arte urbana, o local atrai visitantes de todo o mundo, incluindo artistas, fotógrafos e entusiastas da cultura urbana. As paredes do beco e das ruas vizinhas são cobertas por grafites e murais que mudam regularmente, criando um cenário dinâmico e inspirador para os amantes da arte de rua. O Beco do Batman se tornou uma referência em São Paulo, celebrando a expressão artística e a criatividade da cidade',
+             style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
-      ),
+      
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
         child: Row(
          mainAxisAlignment: MainAxisAlignment.center,
+      
          children: [
           IconButton(
             icon: Icon(Icons.home, color: Colors.purple,),
