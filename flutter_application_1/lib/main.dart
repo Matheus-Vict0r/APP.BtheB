@@ -3,11 +3,152 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bem Vindo ao BtheB' ), 
+        backgroundColor: Color.fromARGB(255, 81, 20, 179),
+      ),
+      backgroundColor: Colors.black,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                labelText: 'Usuário',
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.yellow),
+                ),
+              ),
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                labelText: 'Senha',
+                labelStyle: TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.yellow),
+                ),
+              ),
+              obscureText: true,
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (_usernameController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SecondScreen(username: _usernameController.text),
+                    ),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.yellow,
+              ),
+              child: Text(
+                'Login',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  final String username;
+
+  SecondScreen({required this.username});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('🦇'),
+        backgroundColor: Color.fromARGB(255, 81, 20, 179),
+      ),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Text(
+          'Login feito com sucesso, bem-vindo $username!',
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Color.fromARGB(255, 6, 6, 6),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home, color: Colors.purple),
+              onPressed: () {
+                Navigator.pop(context);
+                
+              },
+            ),
+        ElevatedButton(
+               onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:(context) => FirstScreen())
+                );
+               },
+               
+               style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple),
+               ),
+               
+               child: const Text(
+                'Entrar', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
+               ),
+            
+            ),
+        
+          ],
+        ),
+      ),
+    );
+
+    
+  }
+  
+}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +160,7 @@ class MyApp extends StatelessWidget {
       home: FirstScreen(),
     );
   }
-}
+
 
 class FirstScreen extends StatelessWidget {
   @override
@@ -48,7 +189,7 @@ class FirstScreen extends StatelessWidget {
                onPressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder:(context) => SecondScreen()),
+                  MaterialPageRoute(builder:(context) => Screen()),
                 );
                },
                
@@ -56,7 +197,7 @@ class FirstScreen extends StatelessWidget {
                ),
                
                child: const Text(
-                'HISTORIA', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
+                '🦇 HISTORIA 🦇', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
                ),
             
             ),
@@ -88,13 +229,15 @@ class FirstScreen extends StatelessWidget {
 }
   
 
-class SecondScreen extends StatelessWidget {
+class Screen extends StatelessWidget {
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         title: Text('BtheB', style: TextStyle(color: Colors.purple)),
+         title: Text('BtheB  🦇 🦇 🦇', style: TextStyle(color: Colors.purple)),
         backgroundColor: const Color.fromARGB(255, 12, 12, 12),
       ),
       backgroundColor: Colors.black,
