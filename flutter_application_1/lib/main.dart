@@ -2,7 +2,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:url_launcher/url_launcher.dart'; // NOVOOOO (Nova API)
 
 void main() {
   runApp(MyApp());
@@ -26,9 +26,9 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bem Vindo ao BtheB' ), 
-        backgroundColor: Color.fromARGB(255, 81, 20, 179),
+        backgroundColor: Color.fromARGB(255, 179, 0, 255),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 179, 0, 255),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -101,9 +101,9 @@ class SecondScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('🦇'),
-        backgroundColor: Color.fromARGB(255, 81, 20, 179),
+        backgroundColor: Color.fromARGB(255, 179, 0, 255),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 179, 0, 255),
       body: Center(
         child: Text(
           'Login feito com sucesso, bem-vindo $username!',
@@ -111,12 +111,12 @@ class SecondScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Color.fromARGB(255, 6, 6, 6),
+        color: Color.fromARGB(255, 179, 0, 255),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              icon: Icon(Icons.home, color: Colors.purple),
+              icon: Icon(Icons.home, color: Color.fromARGB(255, 0, 0, 0)),
               onPressed: () {
                 Navigator.pop(context);
                 
@@ -167,17 +167,17 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BtheB', style: TextStyle(color: Colors.purple)),
-        backgroundColor: const Color.fromARGB(255, 12, 12, 12),
+        title: Text('BtheB', style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+        backgroundColor: const Color.fromARGB(255, 179, 0, 255),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 179, 0, 255),
      extendBodyBehindAppBar: true,
      body: Column(
       children: [
         Container(
           height: 300,//altura
-          width:900 ,// largura
-         child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/BtheB-Photoroom.png-Photoroom.png'
+          width:250 ,// largura
+         child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/tela%201.png'
 
          ),
       
@@ -197,7 +197,7 @@ class FirstScreen extends StatelessWidget {
                ),
                
                child: const Text(
-                '🦇 HISTORIA 🦇', style: TextStyle(color: Color.fromARGB(255, 212, 192, 13)),
+                '🦇 HISTORIA 🦇', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                ),
             
             ),
@@ -207,12 +207,12 @@ class FirstScreen extends StatelessWidget {
      ),
           
         bottomNavigationBar: BottomAppBar(
-          color: Colors.black,
+          color: Color.fromARGB(255, 179, 0, 255),
         child: Row(
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
           IconButton(
-            icon: Icon(Icons.home, color: Colors.purple,),
+            icon: Icon(Icons.home, color: Color.fromARGB(255, 0, 0, 0),),
             onPressed: (){
               Navigator.pop(context);
             },
@@ -227,7 +227,7 @@ class FirstScreen extends StatelessWidget {
   }
   
 }
-  
+  // segunda Tela //
 
 class Screen extends StatelessWidget {
 
@@ -237,46 +237,39 @@ class Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         title: Text('BtheB  🦇 🦇 🦇', style: TextStyle(color: Colors.purple)),
-        backgroundColor: const Color.fromARGB(255, 12, 12, 12),
+         title: Text('BtheB  🦇 🦇 🦇', style: TextStyle(color: Color.fromARGB(255, 90, 32, 200))),
+        backgroundColor: const Color.fromARGB(255, 179, 0, 255),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 179, 0, 255),
        body: Column(
-      children: [
-        Container(
-          height: 300,//altura
-          width:900 ,// largura
-         child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/BtheB%20(1).jpg'
-
-         ),
-      
-        ),
-            const Text(
-              'BECO do BATMAN ',
-              style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 150, 32, 171), fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10,),
-            Text('O Beco do Batman é um famoso ponto turístico localizado na Vila Madalena, em São Paulo. Conhecido por suas coloridas e vibrantes obras de arte urbana, o local atrai visitantes de todo o mundo, incluindo artistas, fotógrafos e entusiastas da cultura urbana. As paredes do beco e das ruas vizinhas são cobertas por grafites e murais que mudam regularmente, criando um cenário dinâmico e inspirador para os amantes da arte de rua. O Beco do Batman se tornou uma referência em São Paulo, celebrando a expressão artística e a criatividade da cidade',
-             style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
-        child: Row(
-         mainAxisAlignment: MainAxisAlignment.center,
-      
-         children: [
-          IconButton(
-            icon: Icon(Icons.home, color: Colors.purple,),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-         ],
-        ),
+  children: [
+    Container(
+      height: 300,//altura
+      width:900 ,// largura
+      child: Image.network('https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/main/imagens/BtheB%20(2).jpg'
       ),
-    );
+    ),
+    const Text(
+      'BECO do BATMAN ',
+      style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 90, 32, 171), fontWeight: FontWeight.bold),
+    ),
+    SizedBox(height: 20,),
+    Text('O Beco do Batman é um famoso ponto turístico localizado na Vila Madalena, em São Paulo. Conhecido por suas coloridas e vibrantes obras de arte urbana, o local atrai visitantes de todo o mundo, incluindo artistas, fotógrafos e entusiastas da cultura urbana. As paredes do beco e das ruas vizinhas são cobertas por grafites e murais que mudam regularmente, criando um cenário dinâmico e inspirador para os amantes da arte de rua. O Beco do Batman se tornou uma referência em São Paulo, celebrando a expressão artística e a criatividade da cidade',
+      style: TextStyle(fontSize: 15, color: const Color.fromARGB(255, 0, 0, 0), fontWeight: FontWeight.bold),
+    ),
+
+    // Codigo Novo //
+    SizedBox(height: 60, width: 10,), 
+    ElevatedButton(
+      child: Text('Instagram do Beco'),
+      onPressed: () {
+       
+        launch('https://www.instagram.com/becodobatman.oficial/');
+      },
+    ),
+  ],
+),
+      );
+    
   }
 }
