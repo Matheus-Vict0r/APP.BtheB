@@ -24,10 +24,6 @@ class LoginScreen extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      title: Text('Bem Vindo ao BtheB' ), 
-      backgroundColor: Color.fromARGB(255, 179, 0, 255),
-    ),
     body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -120,10 +116,6 @@ class SecondScreen extends StatelessWidget {
  @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      title: Text('🦇'),
-      backgroundColor: Color.fromARGB(255, 179, 0, 255),
-    ),
     body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -186,10 +178,6 @@ class FirstScreen extends StatelessWidget {
  @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      title: Text('BtheB', style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
-      backgroundColor: const Color.fromARGB(255, 179, 0, 255),
-    ),
     body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -257,10 +245,6 @@ class Screen extends StatelessWidget {
  @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      title: Text('BtheB  🦇 🦇 🦇', style: TextStyle(color: Color.fromARGB(255, 90, 32, 200))),
-      backgroundColor: const Color.fromARGB(255, 179, 0, 255),
-    ),
     body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
