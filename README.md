@@ -2,7 +2,7 @@
 
 BtheB = BECO DO BATMAN
 
-Integrante: Matheus Garcia F. V.
+Integrante: Matheus Garcia e Pedro Pequini
 
 
 Descrição app 
@@ -12,7 +12,11 @@ O aplicativo é uma plataforma que permite que os usuários possam explorar e ap
 
 
 
-https://github.com/Matheus-Vict0r/APP.BtheB/assets/127435388/f3635225-03a1-4193-bce2-d275858f8c4a
+
+
+https://github.com/user-attachments/assets/1dc54d3f-9a97-48bb-a8e4-290619030d5f
+
+
 
 
 ![logo tela](https://github.com/user-attachments/assets/f3bb5416-a819-4b3a-8b6d-6c7e45533d19)
