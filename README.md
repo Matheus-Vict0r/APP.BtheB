@@ -16,9 +16,7 @@ https://github.com/Matheus-Vict0r/APP.BtheB/assets/127435388/f3635225-03a1-4193-
 
 
 
-
-Logo
-![BtheB-Photoroom png-Photoroom](https://github.com/Matheus-Vict0r/APP.BtheB/assets/127435388/6bdd9af5-e997-4de9-a4f8-abd16c652d01)
+https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/refs/heads/main/imagens/logo%20tela.png
 
 
 
