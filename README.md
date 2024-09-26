@@ -15,8 +15,7 @@ O aplicativo é uma plataforma que permite que os usuários possam explorar e ap
 https://github.com/Matheus-Vict0r/APP.BtheB/assets/127435388/f3635225-03a1-4193-bce2-d275858f8c4a
 
 
-
-https://raw.githubusercontent.com/Matheus-Vict0r/APP.BtheB/refs/heads/main/imagens/logo%20tela.png
+https://github.com/Matheus-Vict0r/APP.BtheB/blob/main/imagens/logo%20tela.png
 
 
 
